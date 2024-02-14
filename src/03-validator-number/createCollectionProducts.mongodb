@@ -1,0 +1,37 @@
+use("platzi_store")
+
+//collection products
+
+db.createCollection("products",{
+    validator: {
+        $jsonSchema:{ 
+            bsonType: "object",
+            required: ["name"],
+            properties: {
+                name: {
+                    bsonType: "string",
+                },
+                sizes:{
+                    bsonType:"array", //que sea un array 
+                    uniqueItems:false,//no se pueden repetir los items
+                    minItems:1, //tiene que tener al menos una propiedad size
+                    items:{
+                        bsonType:"string" //que los tipos del arreglo sean string
+                    }
+                },
+                category: { //validar un jsonschema que sea la propiedad
+                    bsonType: "object", //que el tipo de dato sea un objeto para poder agregarle
+                    required:["name"],
+                    properties:{
+                        name: {
+                            bsonType: "string",
+                        },
+                        image: {
+                            bsonType: "string",
+                        },
+                    }
+                }
+            }
+        }
+    }
+})

@@ -1,0 +1,18 @@
+use("platzi_store")
+
+db.stores.find()
+//db.stores_detail.find()
+
+db.stores.aggregate([
+    { 
+        $lookup:// Añadir información de los detalles a la colección stores
+            {
+                from: "stores_detail",//la tabla que queremos unir es stores_detail
+                localField: "storeId",//campo de la coleccion stores donde se comparara
+                foreignField: "storeId",//Campo de la coleccion stores_detail donde se comparara
+                as: "details" //nombre del campo en el cual guardaremos los datos relacionados
+            }
+    }
+])
+
+db.stores.find()

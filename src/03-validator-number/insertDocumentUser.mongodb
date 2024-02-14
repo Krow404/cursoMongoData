@@ -1,0 +1,40 @@
+use("platzi_store")
+
+db.users.insertMany([{
+        name:"Emmanuel",
+        last_name: "Hernandez",
+        email: "emmanuel@gmail.com", 
+        password: "Abcd1234ds",
+        address:{
+            street: "Calle 5 # 6-09",
+            city: "Bogota",
+            country: "Colombia",
+            zip: "11111"
+        },
+        shiping_address:{
+            street: "Calle 6 # 6-09",
+            city: "Bogota",
+            country: "Colombia",
+            zip: "123434"
+        }
+    },
+    {
+        name:"Laura",
+        last_name: "Andrade",
+        email: "Laura@gmail.com", 
+        password: "Abcd1234ds",
+        address:{
+            street: "kukulkan 601",
+            city: "SLP",
+            country: "Mexico",
+            zip: "74128"
+        },
+        shiping_address:{
+            street: "kukulkan 601",
+            city: "SLP",
+            country: "Mexico",
+            zip: "74128"
+        }
+    }
+])
+

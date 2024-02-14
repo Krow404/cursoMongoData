@@ -1,0 +1,59 @@
+use("platzi_store")
+
+
+db.orders.insertMany([
+    {
+        user_id: ObjectId('65cd379e730e567c6e883908'), // User ID of the first registered user (Juan)
+        date:"01/14/2024",
+        items:[
+            {
+                name:'Camiseta',
+                price:234,
+                qty: 3,
+                product_id: ObjectId('65cd40303c25a4b2998669fc')
+            },
+            {
+                name:'Pantalon',
+                price:434,
+                qty: 1,
+                product_id: ObjectId('65cd40303c25a4b2998669fd')
+            },
+            {
+                name:'Vestido',
+                price:334,
+                qty: 3,
+                product_id: ObjectId('65cd40303c25a4b2998669fe')
+            },
+        ]
+    },
+    {
+        user_id: ObjectId('65cd379e730e567c6e883909'), // User ID of the first registered user (Juan)
+        date:"01/14/2024",
+        items:[
+            {
+                name:'Short',
+                price:134,
+                qty: 1,
+                product_id: ObjectId('65cd40303c25a4b2998669ff')
+            },
+        ]
+    },
+    {
+        user_id: ObjectId('65cd379e730e567c6e883908'), // User ID of the first registered user (Juan)
+        date:"02/14/2024",
+        items:[
+            {
+                name:'Vestido',
+                price:334,
+                qty: 3,
+                product_id: ObjectId('65cd40303c25a4b2998669fe')
+            },
+            {
+                name:'Short',
+                price:134,
+                qty: 1,
+                product_id: ObjectId('65cd40303c25a4b2998669ff')
+            },
+        ]
+    },
+])

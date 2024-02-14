@@ -1,0 +1,12 @@
+use("platzi_store")
+
+db.stores.aggregate([
+    {
+        $lookup: {
+            from: "products",  // nombre de la colección a unir (en este caso, "products")
+            localField: "products_ids",   // campo del documento que se utiliza para hacer match
+            foreignField: "_id",  // campo del documento de la otra colección
+            as: "products"     // nombre con el que se guardará el array resultante
+        }   
+    }
+])

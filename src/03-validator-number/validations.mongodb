@@ -1,0 +1,41 @@
+use("platzi_store")
+
+db.getCollectionInfos() // Devuelve información de las colecciones existentes en la base de datos
+
+
+db.runCommand({ //change una coleccion que ya existe
+    collMod: 'users',
+    validator:{
+            $jsonSchema:{   //es un esquema json para validar el documento y nombre
+                bsonType:"object",   //tipo de dato que se va a utilizar, en este caso un objeto
+                required:[ "password","email" ], //campos requeridos para crear el documento
+                additionalProperties:false ,  //propiedades adicionales no permitidas
+                properties:{ //propiedades que se van a permitir en el documento
+                    name:{
+                        bsonType: 'string'
+                    },
+                    last_name:{
+                        bsonType: 'string'
+                    },
+                    email:{
+                        bsonType: 'string'
+                    },
+                    password:{
+                        bsonType: 'string',
+                        pattern: "^[a-zA-Z0-9]{8,}$"  //patron para la contraseña
+                    },
+                    age:{
+                        bsonType:'number',
+                        minimum:18,
+                        maximum:99
+                    },
+                    isSingle:{
+                        bsonType: 'bool'
+                    },
+                    role:{
+                        enum:['customer','seller','admin']
+                    }
+                }
+            }
+    }
+})

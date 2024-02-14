@@ -1,0 +1,33 @@
+use("platzi_store")
+
+
+db.stores.insertMany([
+    {
+        name: "krowstore",
+        address:"Esta es la direccion",
+        products_ids:[
+            ObjectId("65cd40303c25a4b2998669fc"),
+            ObjectId("65cd40303c25a4b2998669fd"),
+        ]
+    },
+    {
+        name: "lauStore",
+        address:"Esta es la direccion",
+        products_ids:[
+            ObjectId("65cd40303c25a4b2998669fe"),
+            ObjectId("65cd40303c25a4b2998669ff"),
+            ObjectId("65cd40303c25a4b2998669fd"),
+        ]
+    },
+])
+
+
+/*
+
+db.stores_detail.insertOne({
+    description:"This is the main Platzi Store, where you can find all Platzi products.",
+    manager:{
+        email: "manager@platzi.com",
+        cellPhone: "1234567890"
+    }
+})*/
